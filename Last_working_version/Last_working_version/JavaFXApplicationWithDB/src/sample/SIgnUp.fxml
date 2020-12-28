@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SIgnUpController">
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" styleClass="background">
+         <children>
+            <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox id="VBox" alignment="CENTER" prefHeight="300.0" prefWidth="421.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="528.0">
+                           <children>
+                              <Label id="label1" layoutX="14.0" layoutY="53.0" text="Username" />
+                              <TextField id="textField1" fx:id="userId" layoutX="10.0" layoutY="72.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+                              <Label id="label1" layoutX="16.0" layoutY="105.0" text="Full Name" />
+                              <PasswordField id="passwordField1" fx:id="Password" layoutX="10.0" layoutY="171.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+                              <ImageView id="app-login-logo" layoutY="-12.0">
+                                 <image>
+                                    <Image preserveRatio="true" smooth="true" url="@LoginLogo.png" />
+                                 </image>
+                              </ImageView>
+                              <Label id="label1" layoutX="16.0" layoutY="155.0" text="Password" />
+                              <Label id="label1" layoutX="16.0" layoutY="207.0" text="Phone No" />
+                              <Label id="label1" layoutX="17.0" layoutY="260.0" text="Email" />
+                              <Label id="label1" layoutX="16.0" layoutY="313.0" text="City" />
+                              <Label id="label1" layoutX="301.0" layoutY="316.0" text="ZIP CODE" />
+                              <TextField id="textField1" fx:id="fullName" layoutX="10.0" layoutY="121.0" prefHeight="31.0" prefWidth="518.0" />
+                              <TextField id="textField1" fx:id="phoneNo" layoutX="10.0" layoutY="226.0" prefHeight="31.0" prefWidth="518.0" />
+                              <TextField id="textField1" fx:id="email" layoutX="10.0" layoutY="276.0" prefHeight="31.0" prefWidth="518.0" />
+                              <TextField id="textField1" fx:id="city" layoutX="10.0" layoutY="332.0" prefHeight="31.0" prefWidth="282.0" />
+                              <TextField id="textField1" fx:id="zip" layoutX="299.0" layoutY="332.0" prefHeight="31.0" prefWidth="232.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <Button id="button1" fx:id="submit" defaultButton="true" layoutX="179.0" layoutY="531.0" onAction="#signupAction" prefHeight="81.0" prefWidth="242.0" text="Submit" />
+         </children>
+         <stylesheets>
+            <URL value="@Login.css" />
+         </stylesheets>
+      </AnchorPane>
+   </children>
+</AnchorPane>

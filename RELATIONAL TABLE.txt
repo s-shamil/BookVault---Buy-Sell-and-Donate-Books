@@ -1,0 +1,7 @@
+CREATE TABLE "TEMP"
+(
+"ISBN" varchar2(20) references BOOK_CATALOG(ISBN),
+"BOOK_NAME" varchar2(50),
+"AUTHOR_NAME" varchar2(40)
+
+);

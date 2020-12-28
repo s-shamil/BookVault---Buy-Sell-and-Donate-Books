@@ -1,0 +1,23 @@
+CREATE OR REPLACE PROCEDURE NOTIF_REFRESH IS
+    DATEBET number;
+    REC VARCHAR2(20);
+    BOOK VARCHAR(20);
+BEGIN
+    FOR RR IN (SELECT * FROM NOTIFICATION)
+    LOOP
+        SELECT SYSDATE-RR.NOTI_DATE intO DATEBET FROM DUAL;
+        IF DATEBET>14 THEN
+            REC:=RR.RECEIVER_ID;
+            BOOK:=RR.BOOK_ID;
+            DELETE FROM NOTIFICATION
+            WHERE (RECEIVER_ID=REC) and (BOOK_ID=BOOK);
+            
+            --1
+            UPDATE D_STOCK SET BOOKED_STATUS='N'
+            WHERE BOOK_ID=BOOK;
+            
+        END IF;
+        
+    END LOOP;
+    
+END;

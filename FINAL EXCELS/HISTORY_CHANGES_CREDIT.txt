@@ -1,0 +1,20 @@
+CREATE OR REPLACE TRIGGER HISTORY_CHANGES_CREDIT
+BEFORE INSERT OR UPDATE
+ON D_HISTORY
+FOR EACH ROW
+DECLARE
+    donor varchar2(20);
+    acceptor varchar2(20);
+    credit number;
+BEGIN
+    credit:=:new.CH_DONOR;
+    select DONOR_ID into donor from BOOK_ENTRY WHERE(BOOK_ID=:new.BOOK_ID);
+    acceptor:=:new.RECIPIENT_ID;
+    dbms_output.put_line('KALA');
+    UPDATE "USER" SET CURR_CREDIT=CURR_CREDIT-credit
+    WHERE USER_ID=acceptor;
+    dbms_output.put_line('KL');
+    UPDATE "USER" SET CURR_CREDIT=CURR_CREDIT+credit
+    WHERE USER_ID=donor;
+    
+END;

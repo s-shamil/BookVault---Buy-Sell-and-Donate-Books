@@ -1,0 +1,17 @@
+create or replace trigger book_entry_triggers_stock
+AFTER insert on BOOK_ENTRY
+for each row
+declare
+    temp_id varchar2(20);
+    temp_isbn varchar2(20);
+    temp_donor_id varchar2(20);
+
+begin
+    dbms_output.put_line(:NEW.BOOK_ID);
+    temp_id:= :NEW.BOOK_ID;
+    temp_isbn:= :NEW.ISBN;
+    temp_donor_id:= :NEW.DONOR_ID;
+    INSERT INTO D_STOCK (BOOK_ID,STOCK_ID,ISBN)
+    VALUES (temp_id,2,temp_isbn);
+    ------STOCK NUMBER PORE DEKHBO;
+end;

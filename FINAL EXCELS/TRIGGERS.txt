@@ -1,0 +1,39 @@
+create or replace trigger book_entry_insert
+before insert on BOOK_ENTRY
+for each row
+begin
+    select book_entry_auto.nextval into :new.BOOK_ID from dual;
+end;
+
+
+
+create or replace trigger book_isbn_insert
+before insert on BOOK_CATALOG
+for each row
+begin
+    select book_isbn_auto.nextval into :new.ISBN from dual;
+end;
+
+
+create or replace trigger noti_insert
+before insert on NOTIFICATION
+for each row
+begin
+    select noti_id_auto.nextval into :new.NOTI_ID from dual;
+end;
+
+
+create or replace trigger author_insert
+before insert on AUTHOR
+for each row
+begin
+    select AUTHOR_AUTO.nextval into :new.AUTHOR_ID from dual;
+end;
+
+
+create or replace trigger PUBLICATION_insert
+before insert on PUBLISHER
+for each row
+begin
+    select PUB_AUTO.nextval into :new.PUB_ID from dual;
+end;

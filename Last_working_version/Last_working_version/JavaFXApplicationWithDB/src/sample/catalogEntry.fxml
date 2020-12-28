@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CatalogEntryfxmlController">
+   <children>
+      <Label layoutX="176.0" layoutY="36.0" text="ISBN" />
+      <Label layoutX="150.0" layoutY="83.0" text="PUBL_ID" />
+      <Label layoutX="123.0" layoutY="134.0" text="BOOK NAME" />
+      <Label layoutX="107.0" layoutY="193.0" text="AUTHOR CODE" />
+      <Label layoutX="118.0" layoutY="248.0" text="GENRE CODE" />
+      <Label layoutX="139.0" layoutY="301.0" text="PRICE MIN" />
+      <Label layoutX="135.0" layoutY="353.0" text="PRICE MAX" />
+      <TextField fx:id="isbn" layoutX="232.0" layoutY="28.0" />
+      <TextField fx:id="pub_id" layoutX="232.0" layoutY="75.0" />
+      <TextField fx:id="book_name" layoutX="232.0" layoutY="126.0" />
+      <TextField fx:id="author_code" layoutX="232.0" layoutY="185.0" />
+      <TextField fx:id="genre_code" layoutX="232.0" layoutY="240.0" />
+      <TextField fx:id="p_min" layoutX="232.0" layoutY="294.0" />
+      <TextField fx:id="p_max" layoutX="232.0" layoutY="345.0" />
+      <TextField fx:id="rating" layoutX="232.0" layoutY="397.0" />
+      <Label layoutX="158.0" layoutY="405.0" text="RATING" />
+      <Button fx:id="butt" layoutX="158.0" layoutY="472.0" mnemonicParsing="false" onAction="#buttAction" prefHeight="45.0" prefWidth="305.0" text="Confirm Entry">
+         <font>
+            <Font size="1.0" />
+         </font></Button>
+      <Button fx:id="showTbl" layoutX="244.0" layoutY="550.0" mnemonicParsing="false" onAction="#showAction" text="Show Catalog" />
+    </children>
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
+</AnchorPane>

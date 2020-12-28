@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.WishABookController">
+    
+    <stylesheets>
+        <URL value="@Login.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="searchText" layoutX="20.0" layoutY="47.0" prefHeight="37.0" prefWidth="622.0" promptText="Enter book name/keyword" />
+      <Button fx:id="search" layoutX="654.0" layoutY="47.0" mnemonicParsing="false" onAction="#searchButtAction" prefHeight="31.0" prefWidth="125.0" text="Search" />
+      <TableView fx:id="showFound" layoutX="20.0" layoutY="101.0" onMouseClicked="#putISBN" prefHeight="397.0" prefWidth="759.0">
+        <columns>
+          <TableColumn fx:id="isbnCol" prefWidth="79.0" text="ISBN" />
+          <TableColumn fx:id="bookNameCol" prefWidth="350.0" text="Book Name" />
+          <TableColumn fx:id="authorCol" prefWidth="200.0" text="Author" />
+          <TableColumn fx:id="marketPriceCol" prefWidth="129.0" text="Market Price" />
+          
+        </columns>
+      </TableView>
+      <Button fx:id="wish" layoutX="579.0" layoutY="516.0" mnemonicParsing="false" onAction="#wishButtAction" prefHeight="37.0" prefWidth="200.0" text="Add to Wishlist" />
+      <TextField fx:id="isbn" editable="false" layoutX="20.0" layoutY="516.0" prefHeight="37.0" prefWidth="547.0" promptText="Enter ISBN or Select from List" />
+      <Label fx:id="wishReport" layoutX="20.0" layoutY="565.0" prefHeight="24.0" prefWidth="481.0" textFill="#0eed16" />
+      <Button fx:id="home" layoutX="579.0" layoutY="577.0" mnemonicParsing="false" onAction="#homeButtAction" prefHeight="37.0" prefWidth="200.0" text="Back to Home" />
+   </children>
+</AnchorPane>

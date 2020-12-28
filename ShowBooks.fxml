@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShowBooksController">
+   <children>
+      <TableView fx:id="tableView" layoutX="8.0" layoutY="14.0" prefHeight="379.0" prefWidth="1049.0" />
+      <Button fx:id="button" layoutX="875.0" layoutY="411.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="31.0" prefWidth="143.0" text="Button" />
+   </children>
+</AnchorPane>

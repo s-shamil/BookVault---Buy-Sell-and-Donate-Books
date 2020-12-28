@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UserHomeController">
+  <stylesheets>
+    <URL value="@Login.css" />
+  </stylesheets>
+   <children>
+      <Button fx:id="wish" layoutX="164.0" layoutY="91.0" mnemonicParsing="false" onAction="#wishButtAction" prefHeight="37.0" prefWidth="284.0" text="Wish a Book" />
+      <Button fx:id="donate" layoutX="164.0" layoutY="157.0" mnemonicParsing="false" onAction="#donateButtAction" prefHeight="37.0" prefWidth="284.0" text="Donate a Book" />
+      <Button fx:id="myWishes" layoutX="164.0" layoutY="225.0" mnemonicParsing="false" onAction="#myWishesButtAction" prefHeight="37.0" prefWidth="284.0" text="My Wishlist" />
+      <Button fx:id="noti" layoutX="164.0" layoutY="294.0" mnemonicParsing="false" onAction="#notiButtAction" prefHeight="37.0" prefWidth="284.0" text="Notifications" />
+      <Button fx:id="reqDelivery" layoutX="164.0" layoutY="362.0" mnemonicParsing="false" onAction="#reqDeliveryButtAction" prefHeight="37.0" prefWidth="284.0" text="Request Delivery" />
+      <Button fx:id="history" layoutX="164.0" layoutY="434.0" mnemonicParsing="false" onAction="#historyButtAction" prefHeight="37.0" prefWidth="284.0" text="History" />
+      <Button fx:id="logout" layoutX="253.0" layoutY="514.0" mnemonicParsing="false" onAction="#logoutButtAction" prefHeight="7.0" prefWidth="107.0" text="Logout" />
+   </children>
+</AnchorPane>

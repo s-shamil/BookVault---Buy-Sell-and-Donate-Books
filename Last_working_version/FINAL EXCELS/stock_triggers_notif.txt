@@ -1,0 +1,41 @@
+create or replace trigger stock_triggers_notif
+before insert
+on D_STOCK
+for each row
+DECLARE
+    temp_book_id varchar2(20);
+    receiver_id  varchar2(20);
+    temp_isbn varchar2(20);
+    cnt integer;
+    min_round integer;
+BEGIN
+    temp_book_id:= :new.BOOK_ID;
+    SELECT ISBN into temp_isbn FROM BOOK_ENTRY WHERE BOOK_ID=temp_book_id;
+    cnt :=0;
+    SELECT min(ROUND) into min_round
+    FROM D_WISHLIST
+    WHERE(ISBN=temp_isbn);
+    SELECT count(*) into cnt FROM(
+        SELECT USER_ID 
+        FROM (SELECT USER_ID FROM D_WISHLIST WHERE (ISBN=temp_isbn) AND (ROUND=min_round))kb join "USER" U using(USER_ID) 
+        ORDER BY(CURR_CREDIT) DESC);
+    
+    IF cnt >0 THEN
+    
+        SELECT USER_ID into receiver_id FROM(
+            SELECT USER_ID 
+            FROM (SELECT USER_ID FROM D_WISHLIST WHERE (ISBN=temp_isbn)AND (ROUND=min_round))kb join "USER" U using(USER_ID)
+            ORDER BY(CURR_CREDIT) DESC)KP
+        WHERE ROWNUM<=1;
+    -----------
+        --1
+        INSERT INTO NOTIFICATION (RECEIVER_ID,BOOK_ID,NOTI_DATE)
+        VALUES (receiver_id,temp_book_id,SYSDATE);
+        --2
+        UPDATE D_WISHLIST SET ROUND=ROUND+1
+        WHERE USER_ID=receiver_id;
+        --3
+        :new.BOOKED_STATUS:='Y';
+    END IF;
+
+END;

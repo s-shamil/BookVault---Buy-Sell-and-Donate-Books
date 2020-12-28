@@ -1,0 +1,54 @@
+create or replace TRIGGER WISHLIST_TRIGGERS_NOTIF
+BEFORE INSERT 
+ON D_WISHLIST
+FOR EACH ROW
+DECLARE
+    temp_isbn varchar2(20);
+    temp_book_id varchar2(20);
+    receiver_id varchar2(20);
+    wish_dt DATE;
+    cnt integer;
+    cnt2 integer;
+
+BEGIN
+    cnt:=0;
+    temp_isbn:=:new.ISBN;
+    wish_dt:=:new.WISH_DATE;
+    receiver_id:=:new.USER_ID;
+    select count(*) into cnt
+    from D_WISHLIST
+    WHERE(ROUND=1) AND (ISBN=temp_isbn) AND(WISH_DATE<wish_dt);
+
+    if (cnt=0) THEN
+
+        cnt2:=0;
+
+        select count(*) into cnt2
+        from D_STOCK JOIN BOOK_ENTRY USING(BOOK_ID)
+        WHERE (ISBN=temp_isbn);
+
+        IF cnt2>0 THEN
+            SELECT BOOK_ID into temp_book_id
+            FROM(
+                select BOOK_ID
+                from D_STOCK JOIN BOOK_ENTRY USING(BOOK_ID)
+                WHERE (ISBN=temp_isbn))kp
+            WHERE ROWNUM<=1;
+        --1
+            INSERT INTO NOTIFICATION (RECEIVER_ID,BOOK_ID,NOTI_DATE)
+            VALUES (receiver_id,temp_book_id,SYSDATE);
+
+        --2
+            UPDATE D_STOCK SET BOOKED_STATUS='Y'
+            WHERE BOOK_ID=temp_book_id;
+            :new.ROUND:=2;
+        ELSE
+            :new.ROUND:=1;
+        END IF;
+
+        --3
+        
+    END IF;
+
+
+END;
